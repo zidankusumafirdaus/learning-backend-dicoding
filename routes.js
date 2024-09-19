@@ -7,10 +7,36 @@ const routes = [
     },
   },
   {
+    method: "*",
+    path: "/",
+    handler: (request, h) => {
+      return "Halaman tidak dapat diakses dengan method tersebut";
+    },
+  },
+  {
     method: "GET",
     path: "/about",
     handler: (request, h) => {
       return "About page";
+    },
+  },
+  {
+    method: "*",
+    path: "/about",
+    handler: (request, h) => {
+      return "Halaman tidak dapat diakses dengan method";
+    },
+  },
+  {
+    method: "GET",
+    path: "/hello/{name?}",
+    handler: (request, h) => {},
+  },
+  {
+    method: "*",
+    path: "/{any*}",
+    handler: (request, h) => {
+      return "Halaman tidak ditemukan";
     },
   },
 ];
